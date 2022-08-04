@@ -1,248 +1,239 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, jsonify
 from flask_cors import cross_origin
 import sklearn
 import pickle
 import pandas as pd
+import json
 
 app = Flask(__name__)
 model = pickle.load(open("model_pickle_baru.pkl", "rb"))
 
-  
-
-@app.route("/")
-@cross_origin()
-def home():
-    return render_template("home.html")
-
-
-
-
 @app.route("/predict", methods = ["GET", "POST"])
 @cross_origin()
 def predict():
-    if request.method == "POST":
-        global  Halte_Awal, Halte_Sampai
+    global  deptime, day, halteStart, halteEnd, path, Halte_Awal, Halte_Sampai
+    content_type = request.headers.get('Content-Type')
+    if (content_type == 'application/json'):
+        json = request.json
 
-        date_dep = request.form["Dep_Time"]
-        Jam = int(pd.to_datetime(date_dep, format ="%H:%M").hour)
-        Menit = int(pd.to_datetime(date_dep, format ="%H:%M").minute)
+        deptime = json['deptime']
+        day = json['day']
+        halteEnd = json['halteEnd']
+        halteStart = json['halteStart']
+        path = json['path']
 
-        Hari_berangkat = request.form["hari"]
-        if (Hari_berangkat == 'senin'):
+        deptime_hour = int(pd.to_datetime(deptime, format ="%H:%M").hour)
+        deptime_minute = int(pd.to_datetime(deptime, format ="%H:%M").minute)
+
+        if (day == 'senin'):
             Hari = 0
 
-        elif (Hari_berangkat == 'selasa'):
+        elif (day == 'selasa'):
             Hari = 1
 
-        elif (Hari_berangkat == 'rabu'):
+        elif (day == 'rabu'):
             Hari = 2
 
-        elif (Hari_berangkat == 'kamis'):
+        elif (day == 'kamis'):
             Hari = 3
 
-        elif (Hari_berangkat == 'jumat'):
+        elif (day == 'jumat'):
             Hari = 4
 
-        elif (Hari_berangkat == 'sabtu'):
+        elif (day == 'sabtu'):
             Hari = 5
 
-        elif (Hari_berangkat == 'minggu'):
+        elif (day == 'minggu'):
             Hari = 6
 
-
-        Jalur_berangkat = request.form["subject"]
-        if (Jalur_berangkat == 'Cicaheum-Cibereum'):
+        if (path == 'Cicaheum-Cibereum'):
             Jalur = 1
 
-        elif (Jalur_berangkat == 'Cibereum-Cicaheum'):
+        elif (path == 'Cibereum-Cicaheum'):
             Jalur = 2
 
-
-        Halte = request.form['topic']
-        if(Halte=='Terminal Cicaheum'):
+        if(halteStart=='Terminal Cicaheum'):
             Halte_Awal = 0
-        elif (Halte=='Halte Padasuka'):
+        elif (halteStart=='Halte Padasuka'):
             Halte_Awal = 1
 
-        elif (Halte =='Halte AH Yani'):
+        elif (halteStart =='Halte AH Yani'):
             Halte_Awal = 2
             
-        elif (Halte=='Halte Bank Mahyapada'):
+        elif (halteStart=='Halte Bank Mahyapada'):
             Halte_Awal = 3
             
-        elif (Halte =='Halte BTM'):
+        elif (halteStart =='Halte BTM'):
             Halte_Awal = 4
             
-        elif (Halte=='Halte Jl Jakarta'):
+        elif (halteStart=='Halte Jl Jakarta'):
             Halte_Awal = 5
 
-        elif (Halte=='Halte KONI'):
+        elif (halteStart=='Halte KONI'):
             Halte_Awal = 6
 
-        elif (Halte=='Halte Plaza IBCC'):
+        elif (halteStart=='Halte Plaza IBCC'):
             Halte_Awal = 7
 
-        elif (Halte=='Halte Jaya Plaza'):
+        elif (halteStart=='Halte Jaya Plaza'):
             Halte_Awal = 8
 
-        elif (Halte=='Halte Jl Ketapang'):
+        elif (halteStart=='Halte Jl Ketapang'):
             Halte_Awal = 9
             
-        elif (Halte=='Halte HSBC'):
+        elif (halteStart=='Halte HSBC'):
             Halte_Awal = 10
         
-        elif (Halte=='Halte Halte Alun-Alun'):
+        elif (halteStart=='Halte Halte Alun-Alun'):
             Halte_Awal = 11
         
-        elif (Halte=='Halte KEB Hana'):
+        elif (halteStart=='Halte KEB Hana'):
             Halte_Awal = 12
 
-        elif (Halte=='Halte Mahaypada Tower'):
+        elif (halteStart=='Halte Mahaypada Tower'):
             Halte_Awal = 13
         
-        elif (Halte=='Halte Jendral Sudirman'):
+        elif (halteStart=='Halte Jendral Sudirman'):
             Halte_Awal = 14
 
-        elif (Halte=='Halte Bunderan Sudirman'):
+        elif (halteStart=='Halte Bunderan Sudirman'):
             Halte_Awal = 15
 
-        elif (Halte=='Halte Jendral Sudirman 3'):
+        elif (halteStart=='Halte Jendral Sudirman 3'):
             Halte_Awal = 16
         
-        elif (Halte=='Terminal Cibereum'):
+        elif (halteStart=='Terminal Cibereum'):
             Halte_Awal = 17
         
-        elif (Halte=='Halte FIF Grub'):
+        elif (halteStart=='Halte FIF Grub'):
             Halte_Awal = 18
         
-        elif (Halte=='Halte Toko Akbar Jaya'):
+        elif (halteStart=='Halte Toko Akbar Jaya'):
             Halte_Awal = 19
         
-        elif (Halte=='Halte Stasiun'):
+        elif (halteStart=='Halte Stasiun'):
             Halte_Awal = 20
 
-        elif (Halte=='Halte Stasiun Timur'):
+        elif (halteStart=='Halte Stasiun Timur'):
             Halte_Awal = 21
 
-        elif (Halte=='Halte Perintis'):
+        elif (halteStart=='Halte Perintis'):
             Halte_Awal = 22
 
-        elif (Halte=='Halte Bank CIMB'):
+        elif (halteStart=='Halte Bank CIMB'):
             Halte_Awal = 23
 
-        elif (Halte=='Halte Veteran'):
+        elif (halteStart=='Halte Veteran'):
             Halte_Awal = 24
 
-        elif (Halte=='Halte Toto Bicycle'):
+        elif (halteStart=='Halte Toto Bicycle'):
             Halte_Awal = 25
 
-        elif (Halte=='Halte Persib'):
+        elif (halteStart=='Halte Persib'):
             Halte_Awal = 26
 
-        elif (Halte=='Halte BRI AH Yani'):
+        elif (halteStart=='Halte BRI AH Yani'):
             Halte_Awal = 27
 
-        elif (Halte=='Halte Bank AH Yani'):
+        elif (halteStart=='Halte Bank AH Yani'):
             Halte_Awal = 28
 
-        elif (Halte=='Halte Padasuka 2'):
+        elif (halteStart=='Halte Padasuka 2'):
             Halte_Awal = 29
 
 
-
-        Halte_Akhir = request.form['chapter']
-        if(Halte_Akhir=='Terminal Cicaheum'):
+        if(halteEnd=='Terminal Cicaheum'):
             Halte_Sampai = 0
-        elif (Halte_Akhir=='Halte Padasuka'):
+        elif (halteEnd=='Halte Padasuka'):
             Halte_Sampai = 1
 
-        elif (Halte_Akhir =='Halte AH Yani'):
+        elif (halteEnd =='Halte AH Yani'):
             Halte_Sampai = 2
             
-        elif (Halte_Akhir=='Halte Bank Mahyapada'):
+        elif (halteEnd=='Halte Bank Mahyapada'):
             Halte_Sampai = 3
             
-        elif (Halte_Akhir =='Halte BTM'):
+        elif (halteEnd =='Halte BTM'):
             Halte_Sampai = 4
             
-        elif (Halte_Akhir=='Halte Jl Jakarta'):
+        elif (halteEnd=='Halte Jl Jakarta'):
             Halte_Sampai = 5
 
-        elif (Halte_Akhir=='Halte KONI'):
+        elif (halteEnd=='Halte KONI'):
             Halte_Sampai = 6
 
-        elif (Halte_Akhir=='Halte Plaza IBCC'):
+        elif (halteEnd=='Halte Plaza IBCC'):
             Halte_Sampai = 7
 
-        elif (Halte_Akhir=='Halte Jaya Plaza'):
+        elif (halteEnd=='Halte Jaya Plaza'):
             Halte_Sampai = 8
 
-        elif (Halte_Akhir=='Halte Jl Ketapang'):
+        elif (halteEnd=='Halte Jl Ketapang'):
             Halte_Sampai = 9
             
-        elif (Halte_Akhir=='Halte HSBC'):
+        elif (halteEnd=='Halte HSBC'):
             Halte_Sampai = 10
         
-        elif (Halte_Akhir=='Halte Halte Alun-Alun'):
+        elif (halteEnd=='Halte Halte Alun-Alun'):
             Halte_Sampai = 11
         
-        elif (Halte_Akhir=='Halte KEB Hana'):
+        elif (halteEnd=='Halte KEB Hana'):
             Halte_Sampai = 12
 
-        elif (Halte_Akhir=='Halte Mahaypada Tower'):
+        elif (halteEnd=='Halte Mahaypada Tower'):
             Halte_Sampai = 13
         
-        elif (Halte_Akhir=='Halte Jendral Sudirman'):
+        elif (halteEnd=='Halte Jendral Sudirman'):
             Halte_Sampai = 14
 
-        elif (Halte_Akhir=='Halte Bunderan Sudirman'):
+        elif (halteEnd=='Halte Bunderan Sudirman'):
             Halte_Sampai = 15
 
-        elif (Halte_Akhir=='Halte Jendral Sudirman 3'):
+        elif (halteEnd=='Halte Jendral Sudirman 3'):
             Halte_Sampai = 16
         
-        elif (Halte_Akhir=='Terminal Cibereum'):
+        elif (halteEnd=='Terminal Cibereum'):
             Halte_Sampai = 17
         
-        elif (Halte_Akhir=='Halte FIF Grub'):
+        elif (halteEnd=='Halte FIF Grub'):
             Halte_Sampai = 18
         
-        elif (Halte_Akhir=='Halte Toko Akbar Jaya'):
+        elif (halteEnd=='Halte Toko Akbar Jaya'):
             Halte_Sampai = 19
         
-        elif (Halte_Akhir=='Halte Stasiun'):
+        elif (halteEnd=='Halte Stasiun'):
             Halte_Sampai = 20
 
-        elif (Halte_Akhir=='Halte Stasiun Timur'):
+        elif (halteEnd=='Halte Stasiun Timur'):
             Halte_Sampai = 21
 
-        elif (Halte_Akhir=='Halte Perintis'):
+        elif (halteEnd=='Halte Perintis'):
             Halte_Sampai = 22
 
-        elif (Halte_Akhir=='Halte Bank CIMB'):
+        elif (halteEnd=='Halte Bank CIMB'):
             Halte_Sampai = 23
 
-        elif (Halte_Akhir=='Halte Veteran'):
+        elif (halteEnd=='Halte Veteran'):
             Halte_Sampai = 24
 
-        elif (Halte_Akhir=='Halte Toto Bicycle'):
+        elif (halteEnd=='Halte Toto Bicycle'):
             Halte_Sampai = 25
 
-        elif (Halte_Akhir=='Halte Persib'):
+        elif (halteEnd=='Halte Persib'):
             Halte_Sampai = 26
 
-        elif (Halte_Akhir=='Halte BRI AH Yani'):
+        elif (halteEnd=='Halte BRI AH Yani'):
             Halte_Sampai = 27
 
-        elif (Halte_Akhir=='Halte Bank AH Yani'):
+        elif (halteEnd=='Halte Bank AH Yani'):
             Halte_Sampai = 28
 
-        elif (Halte_Akhir=='Halte Padasuka 2'):
+        elif (halteEnd=='Halte Padasuka 2'):
             Halte_Sampai = 29
         
         prediction=model.predict([[
-            Jam,
-            Menit,
+            deptime_hour,
+            deptime_minute,
             Hari,
             Jalur,
             Halte_Awal,
@@ -251,13 +242,9 @@ def predict():
 
         output=round(prediction[0],5)
 
-        return render_template('home.html',prediction_text="Waktu Kedatangan Anda: {} Menit".format(output))
-
-
-    return render_template("home.html")
-
-
-
+        return jsonify(output)
+    else:
+        return 'Content-Type not supported!'
 
 if __name__ == "__main__":
     app.run(debug=True)

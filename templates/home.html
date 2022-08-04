@@ -14,112 +14,112 @@
     <!-- css -->
     <link rel="stylesheet" href="static/css/styles.css">
     <script>
-        var subjectObject = {
-          "Cicaheum-Cibereum": {
-            "Terminal Cicaheum": ['Halte Padasuka', 'Halte AH Yani', 'Halte Bank Mahyapada', 'Halte BTM', 'Halte Jl Jakarta', 
-            'Halte KONI', 'Halte Plaza IBCC', 'Halte Jaya Plaza', 'Halte Jl Ketapang', 'Halte HSBC', 'Halte Alun-alun', 'Halte KEB Hana',
-            'Halte Mahyapada Tower', 'Halte Jendral Sudirman', 'Halte Bunderan Sudirman', 'Halte Jendral Sudirman 3','Terminal Cibereum'],
-        
-            "Halte Padasuka": ['Halte AH Yani', 'Halte Bank Mahyapada', 'Halte BTM', 'Halte Jl Jakarta', 
-            'Halte KONI', 'Halte Plaza IBCC', 'Halte Jaya Plaza', 'Halte Jl Ketapang', 'Halte HSBC', 'Halte Alun-alun', 'Halte KEB Hana',
-            'Halte Mahyapada Tower', 'Halte Jendral Sudirman', 'Halte Bunderan Sudirman', 'Halte Jendral Sudirman 3','Terminal Cibereum'],
-        
-            "Halte AH Yani": ['Halte Bank Mahyapada', 'Halte BTM', 'Halte Jl Jakarta', 'Halte KONI', 'Halte Plaza IBCC', 'Halte Jaya Plaza', 
-            'Halte Jl Ketapang', 'Halte HSBC', 'Halte Alun-alun', 'Halte KEB Hana', 'Halte Mahyapada Tower', 'Halte Jendral Sudirman', 
-            'Halte Bunderan Sudirman', 'Halte Jendral Sudirman 3','Terminal Cibereum'],
-        
-            "Halte Bank Mahyapada": ['Halte BTM', 'Halte Jl Jakarta', 'Halte KONI', 'Halte Plaza IBCC', 'Halte Jaya Plaza', 'Halte Jl Ketapang', 
-            'Halte HSBC', 'Halte Alun-alun', 'Halte KEB Hana', 'Halte Mahyapada Tower', 'Halte Jendral Sudirman', 'Halte Bunderan Sudirman', 
-            'Halte Jendral Sudirman 3','Terminal Cibereum'],
-        
-            "Halte BTM": ['Halte Jl Jakarta', 'Halte KONI', 'Halte Plaza IBCC', 'Halte Jaya Plaza', 'Halte Jl Ketapang', 
-            'Halte HSBC', 'Halte Alun-alun', 'Halte KEB Hana', 'Halte Mahyapada Tower', 'Halte Jendral Sudirman', 'Halte Bunderan Sudirman', 
-            'Halte Jendral Sudirman 3','Terminal Cibereum'],
-            
-            "Halte Jl Jakarta": ['Halte KONI', 'Halte Plaza IBCC', 'Halte Jaya Plaza', 'Halte Jl Ketapang', 
-            'Halte HSBC', 'Halte Alun-alun', 'Halte KEB Hana', 'Halte Mahyapada Tower', 'Halte Jendral Sudirman', 'Halte Bunderan Sudirman', 
-            'Halte Jendral Sudirman 3','Terminal Cibereum'],
-        
-            "Halte KONI": ['Halte Plaza IBCC', 'Halte Jaya Plaza', 'Halte Jl Ketapang', 
-            'Halte HSBC', 'Halte Alun-alun', 'Halte KEB Hana',
-            'Halte Mahyapada Tower', 'Halte Jendral Sudirman', 'Halte Bunderan Sudirman', 'Halte Jendral Sudirman 3','Terminal Cibereum'],
-        
-            "Halte Plaza IBCC": ['Halte Jaya Plaza', 'Halte Jl Ketapang', 
-            'Halte HSBC', 'Halte Alun-alun', 'Halte KEB Hana',
-            'Halte Mahyapada Tower', 'Halte Jendral Sudirman', 'Halte Bunderan Sudirman', 'Halte Jendral Sudirman 3','Terminal Cibereum'],
-        
-            "Halte Jaya Plaza": ['Halte Jl Ketapang', 
-            'Halte HSBC', 'Halte Alun-alun', 'Halte KEB Hana',
-            'Halte Mahyapada Tower', 'Halte Jendral Sudirman', 'Halte Bunderan Sudirman', 'Halte Jendral Sudirman 3','Terminal Cibereum'],
-        
-            "Halte Jl Ketapang": ['Halte HSBC', 'Halte Alun-alun', 'Halte KEB Hana',
-            'Halte Mahyapada Tower', 'Halte Jendral Sudirman', 'Halte Bunderan Sudirman', 'Halte Jendral Sudirman 3','Terminal Cibereum'],
-        
-            "Halte HSBC": ['Halte Alun-alun', 'Halte KEB Hana', 'Halte Mahyapada Tower', 'Halte Jendral Sudirman', 'Halte Bunderan Sudirman', 
-            'Halte Jendral Sudirman 3','Terminal Cibereum'],
-        
-            "Halte Halte Alun-Alun": ['Halte KEB Hana', 'Halte Mahyapada Tower', 'Halte Jendral Sudirman', 'Halte Bunderan Sudirman', 'Halte Jendral Sudirman 3',
-            'Terminal Cibereum'],
-        
-            "Halte KEB Hana": ['Halte Mahyapada Tower', 'Halte Jendral Sudirman', 'Halte Bunderan Sudirman', 'Halte Jendral Sudirman 3','Terminal Cibereum'],
-        
-            "Halte Mahaypada Tower": ['Halte Jendral Sudirman', 'Halte Bunderan Sudirman', 'Halte Jendral Sudirman 3','Terminal Cibereum'],
-        
-            "Halte Jendral Sudirman": ['Halte Bunderan Sudirman', 'Halte Jendral Sudirman 3','Terminal Cibereum'],
-            "Halte Bunderan Sudirman": ['Halte Jendral Sudirman 3','Terminal Cibereum'],
-            "Halte Jendral Sudirman 3": ['Terminal Cibereum']   
-          },
-          "Cibereum-Cicaheum": {
-            "Terminal Cibereum": ['Halte FIF Grub', 'Halte Toko Akbar', 'Halte Stasiun', 'Halte Stasiun Timur', 'Halte Perintis',
-            'Halte Bank CIMB', 'Halte Veteran', 'Halte Toto Bycycle', 'Halte Persib', 'Halte BRI AH Yani', 'Halte Bank AH Yani', 'Halte Padasuka2','Terminal Cicaheum'],
-        
-            "Halte FIF Grub": ['Halte Toko Akbar', 'Halte Stasiun', 'Halte Stasiun Timur', 'Halte Perintis',
-            'Halte Bank CIMB', 'Halte Veteran', 'Halte Toto Bycycle', 'Halte Persib', 'Halte BRI AH Yani', 'Halte Bank AH Yani', 'Halte Padasuka2','Terminal Cicaheum'],
-        
-            "Halte Toko Akbar Jaya": ['Halte Stasiun', 'Halte Stasiun Timur', 'Halte Perintis',
-            'Halte Bank CIMB', 'Halte Veteran', 'Halte Toto Bycycle', 'Halte Persib', 'Halte BRI AH Yani', 'Halte Bank AH Yani', 'Halte Padasuka2','Terminal Cicaheum'],
-        
-            "Halte Stasiun": ['Halte Stasiun Timur', 'Halte Perintis',
-            'Halte Bank CIMB', 'Halte Veteran', 'Halte Toto Bycycle', 'Halte Persib', 'Halte BRI AH Yani', 'Halte Bank AH Yani', 'Halte Padasuka2','Terminal Cicaheum'],
-        
-            "Halte Stasiun Timur": ['Halte Perintis',
-            'Halte Bank CIMB', 'Halte Veteran', 'Halte Toto Bycycle', 'Halte Persib', 'Halte BRI AH Yani', 'Halte Bank AH Yani', 'Halte Padasuka2','Terminal Cicaheum'],
-        
-            "Halte Perintis": ['Halte Bank CIMB', 'Halte Veteran', 'Halte Toto Bycycle', 'Halte Persib', 'Halte BRI AH Yani', 'Halte Bank AH Yani', 'Halte Padasuka2','Terminal Cicaheum'],
-            "Halte Bank CIMB": ['Halte Veteran', 'Halte Toto Bycycle', 'Halte Persib', 'Halte BRI AH Yani', 'Halte Bank AH Yani', 'Halte Padasuka2','Terminal Cicaheum'],
-            "Halte Veteran": ['Halte Toto Bycycle', 'Halte Persib', 'Halte BRI AH Yani', 'Halte Bank AH Yani', 'Halte Padasuka2','Terminal Cicaheum'],
-            "Halte Toto Bicycle": ['Halte Persib', 'Halte BRI AH Yani', 'Halte Bank AH Yani', 'Halte Padasuka2','Terminal Cicaheum'],
-            "Halte Persib": ['Halte BRI AH Yani', 'Halte Bank AH Yani', 'Halte Padasuka2','Terminal Cicaheum'],
-            "Halte BRI AH Yani": ['Halte Bank AH Yani', 'Halte Padasuka2','Terminal Cicaheum'],
-            "Halte Bank AH Yani": ['Halte Padasuka2','Terminal Cicaheum'],
-            "Halte Padasuka 2": ['Terminal Cicaheum'],
-          }
+        const subjectObject = {
+            "Cicaheum-Cibereum": {
+                "Terminal Cicaheum": ['Halte Padasuka', 'Halte AH Yani', 'Halte Bank Mahyapada', 'Halte BTM', 'Halte Jl Jakarta',
+                    'Halte KONI', 'Halte Plaza IBCC', 'Halte Jaya Plaza', 'Halte Jl Ketapang', 'Halte HSBC', 'Halte Alun-alun', 'Halte KEB Hana',
+                    'Halte Mahyapada Tower', 'Halte Jendral Sudirman', 'Halte Bunderan Sudirman', 'Halte Jendral Sudirman 3', 'Terminal Cibereum'],
+
+                "Halte Padasuka": ['Halte AH Yani', 'Halte Bank Mahyapada', 'Halte BTM', 'Halte Jl Jakarta',
+                    'Halte KONI', 'Halte Plaza IBCC', 'Halte Jaya Plaza', 'Halte Jl Ketapang', 'Halte HSBC', 'Halte Alun-alun', 'Halte KEB Hana',
+                    'Halte Mahyapada Tower', 'Halte Jendral Sudirman', 'Halte Bunderan Sudirman', 'Halte Jendral Sudirman 3', 'Terminal Cibereum'],
+
+                "Halte AH Yani": ['Halte Bank Mahyapada', 'Halte BTM', 'Halte Jl Jakarta', 'Halte KONI', 'Halte Plaza IBCC', 'Halte Jaya Plaza',
+                    'Halte Jl Ketapang', 'Halte HSBC', 'Halte Alun-alun', 'Halte KEB Hana', 'Halte Mahyapada Tower', 'Halte Jendral Sudirman',
+                    'Halte Bunderan Sudirman', 'Halte Jendral Sudirman 3', 'Terminal Cibereum'],
+
+                "Halte Bank Mahyapada": ['Halte BTM', 'Halte Jl Jakarta', 'Halte KONI', 'Halte Plaza IBCC', 'Halte Jaya Plaza', 'Halte Jl Ketapang',
+                    'Halte HSBC', 'Halte Alun-alun', 'Halte KEB Hana', 'Halte Mahyapada Tower', 'Halte Jendral Sudirman', 'Halte Bunderan Sudirman',
+                    'Halte Jendral Sudirman 3', 'Terminal Cibereum'],
+
+                "Halte BTM": ['Halte Jl Jakarta', 'Halte KONI', 'Halte Plaza IBCC', 'Halte Jaya Plaza', 'Halte Jl Ketapang',
+                    'Halte HSBC', 'Halte Alun-alun', 'Halte KEB Hana', 'Halte Mahyapada Tower', 'Halte Jendral Sudirman', 'Halte Bunderan Sudirman',
+                    'Halte Jendral Sudirman 3', 'Terminal Cibereum'],
+
+                "Halte Jl Jakarta": ['Halte KONI', 'Halte Plaza IBCC', 'Halte Jaya Plaza', 'Halte Jl Ketapang',
+                    'Halte HSBC', 'Halte Alun-alun', 'Halte KEB Hana', 'Halte Mahyapada Tower', 'Halte Jendral Sudirman', 'Halte Bunderan Sudirman',
+                    'Halte Jendral Sudirman 3', 'Terminal Cibereum'],
+
+                "Halte KONI": ['Halte Plaza IBCC', 'Halte Jaya Plaza', 'Halte Jl Ketapang',
+                    'Halte HSBC', 'Halte Alun-alun', 'Halte KEB Hana',
+                    'Halte Mahyapada Tower', 'Halte Jendral Sudirman', 'Halte Bunderan Sudirman', 'Halte Jendral Sudirman 3', 'Terminal Cibereum'],
+
+                "Halte Plaza IBCC": ['Halte Jaya Plaza', 'Halte Jl Ketapang',
+                    'Halte HSBC', 'Halte Alun-alun', 'Halte KEB Hana',
+                    'Halte Mahyapada Tower', 'Halte Jendral Sudirman', 'Halte Bunderan Sudirman', 'Halte Jendral Sudirman 3', 'Terminal Cibereum'],
+
+                "Halte Jaya Plaza": ['Halte Jl Ketapang',
+                    'Halte HSBC', 'Halte Alun-alun', 'Halte KEB Hana',
+                    'Halte Mahyapada Tower', 'Halte Jendral Sudirman', 'Halte Bunderan Sudirman', 'Halte Jendral Sudirman 3', 'Terminal Cibereum'],
+
+                "Halte Jl Ketapang": ['Halte HSBC', 'Halte Alun-alun', 'Halte KEB Hana',
+                    'Halte Mahyapada Tower', 'Halte Jendral Sudirman', 'Halte Bunderan Sudirman', 'Halte Jendral Sudirman 3', 'Terminal Cibereum'],
+
+                "Halte HSBC": ['Halte Alun-alun', 'Halte KEB Hana', 'Halte Mahyapada Tower', 'Halte Jendral Sudirman', 'Halte Bunderan Sudirman',
+                    'Halte Jendral Sudirman 3', 'Terminal Cibereum'],
+
+                "Halte Halte Alun-Alun": ['Halte KEB Hana', 'Halte Mahyapada Tower', 'Halte Jendral Sudirman', 'Halte Bunderan Sudirman', 'Halte Jendral Sudirman 3',
+                    'Terminal Cibereum'],
+
+                "Halte KEB Hana": ['Halte Mahyapada Tower', 'Halte Jendral Sudirman', 'Halte Bunderan Sudirman', 'Halte Jendral Sudirman 3', 'Terminal Cibereum'],
+
+                "Halte Mahaypada Tower": ['Halte Jendral Sudirman', 'Halte Bunderan Sudirman', 'Halte Jendral Sudirman 3', 'Terminal Cibereum'],
+
+                "Halte Jendral Sudirman": ['Halte Bunderan Sudirman', 'Halte Jendral Sudirman 3', 'Terminal Cibereum'],
+                "Halte Bunderan Sudirman": ['Halte Jendral Sudirman 3', 'Terminal Cibereum'],
+                "Halte Jendral Sudirman 3": ['Terminal Cibereum']
+            },
+            "Cibereum-Cicaheum": {
+                "Terminal Cibereum": ['Halte FIF Grub', 'Halte Toko Akbar', 'Halte Stasiun', 'Halte Stasiun Timur', 'Halte Perintis',
+                    'Halte Bank CIMB', 'Halte Veteran', 'Halte Toto Bycycle', 'Halte Persib', 'Halte BRI AH Yani', 'Halte Bank AH Yani', 'Halte Padasuka2', 'Terminal Cicaheum'],
+
+                "Halte FIF Grub": ['Halte Toko Akbar', 'Halte Stasiun', 'Halte Stasiun Timur', 'Halte Perintis',
+                    'Halte Bank CIMB', 'Halte Veteran', 'Halte Toto Bycycle', 'Halte Persib', 'Halte BRI AH Yani', 'Halte Bank AH Yani', 'Halte Padasuka2', 'Terminal Cicaheum'],
+
+                "Halte Toko Akbar Jaya": ['Halte Stasiun', 'Halte Stasiun Timur', 'Halte Perintis',
+                    'Halte Bank CIMB', 'Halte Veteran', 'Halte Toto Bycycle', 'Halte Persib', 'Halte BRI AH Yani', 'Halte Bank AH Yani', 'Halte Padasuka2', 'Terminal Cicaheum'],
+
+                "Halte Stasiun": ['Halte Stasiun Timur', 'Halte Perintis',
+                    'Halte Bank CIMB', 'Halte Veteran', 'Halte Toto Bycycle', 'Halte Persib', 'Halte BRI AH Yani', 'Halte Bank AH Yani', 'Halte Padasuka2', 'Terminal Cicaheum'],
+
+                "Halte Stasiun Timur": ['Halte Perintis',
+                    'Halte Bank CIMB', 'Halte Veteran', 'Halte Toto Bycycle', 'Halte Persib', 'Halte BRI AH Yani', 'Halte Bank AH Yani', 'Halte Padasuka2', 'Terminal Cicaheum'],
+
+                "Halte Perintis": ['Halte Bank CIMB', 'Halte Veteran', 'Halte Toto Bycycle', 'Halte Persib', 'Halte BRI AH Yani', 'Halte Bank AH Yani', 'Halte Padasuka2', 'Terminal Cicaheum'],
+                "Halte Bank CIMB": ['Halte Veteran', 'Halte Toto Bycycle', 'Halte Persib', 'Halte BRI AH Yani', 'Halte Bank AH Yani', 'Halte Padasuka2', 'Terminal Cicaheum'],
+                "Halte Veteran": ['Halte Toto Bycycle', 'Halte Persib', 'Halte BRI AH Yani', 'Halte Bank AH Yani', 'Halte Padasuka2', 'Terminal Cicaheum'],
+                "Halte Toto Bicycle": ['Halte Persib', 'Halte BRI AH Yani', 'Halte Bank AH Yani', 'Halte Padasuka2', 'Terminal Cicaheum'],
+                "Halte Persib": ['Halte BRI AH Yani', 'Halte Bank AH Yani', 'Halte Padasuka2', 'Terminal Cicaheum'],
+                "Halte BRI AH Yani": ['Halte Bank AH Yani', 'Halte Padasuka2', 'Terminal Cicaheum'],
+                "Halte Bank AH Yani": ['Halte Padasuka2', 'Terminal Cicaheum'],
+                "Halte Padasuka 2": ['Terminal Cicaheum'],
+            }
         }
-        window.onload = function() {
-          var subjectSel = document.getElementById("subject");
-          var topicSel = document.getElementById("topic");
-          var chapterSel = document.getElementById("chapter");
-          for (var x in subjectObject) {
-            subjectSel.options[subjectSel.options.length] = new Option(x, x);
-          }
-          subjectSel.onchange = function() {
-            //empty Chapters- and Topics- dropdowns
-            chapterSel.length = 1;
-            topicSel.length = 1;
-            //display correct values
-            for (var y in subjectObject[this.value]) {
-              topicSel.options[topicSel.options.length] = new Option(y, y);
+        window.onload = function () {
+            const subjectSel = document.getElementById("subject");
+            const topicSel = document.getElementById("topic");
+            const chapterSel = document.getElementById("chapter");
+            for (let x in subjectObject) {
+                subjectSel.options[subjectSel.options.length] = new Option(x, x);
             }
-          }
-          topicSel.onchange = function() {
-            //empty Chapters dropdown
-            chapterSel.length = 1;
-            //display correct values
-            var z = subjectObject[subjectSel.value][this.value];
-            for (var i = 0; i < z.length; i++) {
-              chapterSel.options[chapterSel.options.length] = new Option(z[i], z[i]);
+            subjectSel.onchange = function () {
+                //empty Chapters- and Topics- dropdowns
+                chapterSel.length = 1;
+                topicSel.length = 1;
+                //display correct values
+                for (let y in subjectObject[this.value]) {
+                    topicSel.options[topicSel.options.length] = new Option(y, y);
+                }
             }
-          }
+            topicSel.onchange = function () {
+                //empty Chapters dropdown
+                chapterSel.length = 1;
+                //display correct values
+                let z = subjectObject[subjectSel.value][this.value];
+                for (let i = 0; i < z.length; i++) {
+                    chapterSel.options[chapterSel.options.length] = new Option(z[i], z[i]);
+                }
+            }
         }
     </script>
 
@@ -129,14 +129,6 @@
 <body>
 
     <!-- As a heading -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="/"></a>
-            </div>
-        </div>
-    </nav>
-    <br><br><br>
     <div class="container">
         <form action="\predict" method="post">
             <div class="row">
@@ -149,34 +141,24 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="row">
                 <div class="col-sm-6">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Menit Keberangkatan</h5>
-                            <!-- Departure -->
+                            <h5 class="card-title">Hari</h5>
+                            <select name="hari" id="hari" class="custom-select" required="required">
+                                <option value="senin">Senin</option>
+                                <option value="selasa">Selasa</option>
+                                <option value="rabu">Rabu</option>
+                                <option value="kamis">Kamis</option>
+                                <option value="jumat">Jumat</option>
+                                <option value="sabtu">Sabtu</option>
+                                <option value="minggu">Minggu</option>
+                            </select>
                         </div>
                     </div>
                 </div>
-            <br>  
-            </div>
-            <br>
-            <div class="row">
-            <div class="col-sm-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Hari</h5>
-                        <select name="hari" id="hari" class="custom-select" required="required">
-                            <option value="senin">Senin</option>
-                            <option value="selasa">Selasa</option>
-                            <option value="rabu">Rabu</option>
-                            <option value="kamis">Kamis</option>
-                            <option value="jumat">Jumat</option>
-                            <option value="sabtu">Sabtu</option>
-                            <option value="minggu">Minggu</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
                 <div class="col-sm-6">
                     <div class="card">
                         <div class="card-body">
@@ -189,9 +171,6 @@
                     </div>
                 </div>
             </div>
-            <br>
-            <br>
-            <br>
             <div class="row">
                 <div class="col-sm-6">
                     <div class="card">
@@ -199,7 +178,7 @@
                             <h5 class="card-title">Halte Naik</h5>
                             <!-- Destination -->
                             <select name="topic" id="topic" class="custom-select" required="required">
-                            <option value="" disabled selected>Masukan Halte Keberangkatan</option>
+                                <option value="" disabled selected>Masukan Halte Keberangkatan</option>
                             </select>
                         </div>
                     </div>
@@ -210,25 +189,16 @@
                             <h5 class="card-title">Halte Turun</h5>
                             <!-- Total Stops -->
                             <select name="chapter" id="chapter" class="custom-select" required="required">
-                            <option value="" disabled selected>Masukan Halte Tujuan</option>
+                                <option value="" disabled selected>Masukan Halte Tujuan</option>
                             </select>
                         </div>
                     </div>
                 </div>
             </div>
-            <br>
-            <br>
-            <br>
             <!-- Submit -->
             <input type="submit" value="Submit" class="btn btn-secondary">
         </form>
-        <br>
         <h3>{{ prediction_text }}</h3>
-        <br>
-        <br>
-        
-        <br>
-
     </div>
 
 

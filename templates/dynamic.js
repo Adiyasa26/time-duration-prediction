@@ -1,4 +1,4 @@
-var jalur={
+const jalur={
     cicaheum:['Terminal Cicaheum', 'Halte Padasuka', 'Halte AH Yani', 'Halte Bank Mahyapada', 'Halte BTM', 'Halte Jl Jakarta', 
     'Halte KONI', 'Halte Plaza IBCC', 'Halte Jaya Plaza', 'Halte Jl Ketapang', 'Halte HSBC', 'Halte Alun-alun', 'Halte KEB Hana',
     'Halte Mahyapada Tower', 'Halte Jendral Sudirman', 'Halte Bunderan Sudirman', 'Halte Jendral Sudirman 3'],
@@ -8,12 +8,12 @@ var jalur={
 
 // getting the main and sub menus
  
-var main = document.getElementById('jalur');
-var sub = document.getElementById('halte_awal');
+const main = document.getElementById('jalur');
+const sub = document.getElementById('halte_awal');
 
 main.addEventListener('change', function(){
 
-    var selected_option = jalur[this.value];
+    const selected_option = jalur[this.value];
 
     // removing sub menu opstions while loops
     while(sub.options.length > 0 ){
