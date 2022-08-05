@@ -298,8 +298,6 @@ def predict():
 
         json_type = jsonify(output, dict)
 
-        print(Jalur)
-
         return json_type
     else:
         return 'Content-Type not supported!'
