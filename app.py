@@ -236,8 +236,10 @@ def list_converter(input):
         elif(input[item] == [2]):
             congestion_list_number.append(2)
 
-        else:
+        elif(input[item] == [3]):
             congestion_list_number.append(3)
+        else:
+            congestion_list_number.append(4)
     
     return congestion_list_number
 
@@ -285,8 +287,9 @@ def predict():
                     congestion,
                 ]])
                 congestion_list.append(prediction2)
-        else:
-            congestion_list.append('Prediksi tidak tersedia di jalur tersebut')
+        elif(Jalur == 2):
+            congestion_list = []
+            congestion_list.append(4)
 
         output=round(prediction1[0],5)
 
@@ -294,6 +297,8 @@ def predict():
         dict = convert_array_to_number
 
         json_type = jsonify(output, dict)
+
+        print(Jalur)
 
         return json_type
     else:
